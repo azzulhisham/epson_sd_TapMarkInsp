@@ -1,0 +1,96 @@
+﻿*** Software Update Record ***
+
+---------------------------------
+#3rd Feb 2012
+Module		: frm_Main.vb
+Procedure	: TrgVS
+Details		:            
+			'Data Judgment
+            'vsRealData.Length = 24 And VS_Data_Chk(2).Trim = "0" And (vsRealData.Substring(0, 1) = "E" Or vsRealData.Substring(12, 1) = "E")
+
+				If vsRealData.Length >= 3 Then
+					'Chr. Str. OK
+					Dim chk0 As Integer = -1
+
+
+Module		: frm_Main.vb
+Procedure	: lbl_DataInpute_TextChanged
+Details		:
+				If .lbl_DataInput.Text.IndexOf("-") < 0 Then
+					If .lbl_DataInput.Text.ToUpper.StartsWith("X") Then
+						If Not .lbl_DataInput.Text.ToUpper.Contains("N") Then
+							.lbl_DataInput.Text = .lbl_DataInput.Text.Substring(0, 4) & "-" & .lbl_DataInput.Text.Substring(4)
+						End If
+					End If
+				End If
+
+
+Remark		: Addtional New Code - Refer to 'SD NEW Marking CODE.xls'
+
+Module		: mdl_Decl.vb
+Procedure	: 
+Details		: 
+				Public Const MarkingLine1Char As Integer = 5
+				Public Const CameraSceneNoStartAt As Integer = 14
+
+Module		: frm_Main.vb
+Procedure	: tmr_IOScanner_Tick
+Details		:
+                If ReadInPort <> 0 Then
+                    If TapMarkInsp.SettingLot.SpecNo.ToUpper.StartsWith("CAL") Then
+                        Me.ChgScene(31)
+                    Else
+                        'Set Camera Scene No.
+                        Me.ChgScene(CameraSceneNoStartAt + TapMarkInsp.SettingLot.dbData(0).MarkData1.Trim.Length - MarkingLine1Char)
+
+                        'If TapMarkInsp.SettingLot.SpecNo = "U0001019" Or TapMarkInsp.SettingLot.SpecNo = "U0001020" Then
+                        '    Me.ChgScene(15)
+                        'Else
+                        '    Me.ChgScene(14)
+                        'End If
+                    End If
+                End If
+ 
+Module		: frm_Main.vb
+Procedure	: lbl_DataInpute_TextChanged
+Details		:
+                If lbl_DataInput.Text.ToUpper.StartsWith("CAL") Then
+                    Me.ChgScene(31)
+                Else
+                    'If TapMarkInsp.SettingLot.SpecNo = "U0001019" Or TapMarkInsp.SettingLot.SpecNo = "U0001020" Then
+                    '    Me.ChgScene(15)
+                    'Else
+                    '    Me.ChgScene(14)
+                    'End If
+                End If
+
+				If iRetRec < 0 Then     'No Data -> Not Rdy For Auto
+                    OutputPoint(0, 2, fg_OFF)
+                    Me.pic_BitState(10).BackColor = RedLED_OnOff(fg_OFF)
+                    Me.ToolTip1.SetToolTip(Me.lbl_MarkingData, "No Data !")
+                Else                    'Data OK -> Rdy For Auto
+                    'Set Camera Scene No.
+                    Me.ChgScene(CameraSceneNoStartAt + .dbData(0).MarkData1.Trim.Length - MarkingLine1Char)
+
+                    OutputPoint(0, 2, fg_ON)
+                    Me.pic_BitState(10).BackColor = RedLED_OnOff(fg_ON)
+
+                    Try
+                        Me.ToolTip1.SetToolTip(Me.lbl_MarkingData, "<" & .dbData(.dbData.GetUpperBound(0)).MarkData1 & "> <" & .dbData(.dbData.GetUpperBound(0)).MarkData2 & ">")
+                    Catch ex As Exception
+
+                    End Try
+                End If
+
+Module		: frm_Main.vb
+Procedure	: Form_Load
+Details		:
+				With TapMarkInsp.SettingLot
+					ReDim .dbData(0)
+
+					With .dbData(0)
+						.MarkData1 = "X3500"
+						.MarkData2 = "ABCDEF"
+					End With
+				End With
+
