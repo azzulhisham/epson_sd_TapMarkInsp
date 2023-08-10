@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PublishUrlHistory>C:\Users\User\source\repos\epson\SD_TapMarkInsp2016\Framework4_A\ClickOnce\|C:\Users\Zulhisham\Desktop\epson\TapMarkInsp\Framework4_A\ClickOnce\|F:\Dynamic Pointer\TapMarkInsp\Framework4_A\ClickOnce\|C:\Users\User\Desktop\TapMarkInsp\Framework4_A\ClickOnce\|G:\Dynamic Pointer\TapMarkInsp\Framework4_A\ClickOnce\</PublishUrlHistory>
-    <InstallUrlHistory>http://172.16.59.254/dnld/az_Logics/SD_TapMarkInsp_A/</InstallUrlHistory>
+    <InstallUrlHistory>http://20.10.30.2/dnld/az_Logics/SD_TapMarkInsp_A/|http://172.16.59.254/dnld/az_Logics/SD_TapMarkInsp_A/</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory>http://172.16.59.254/dnld/az_Logics/SD_TapMarkInsp_A/|http://etmymnet/dnld/az_Logics/SD_TapMarkInsp_A/|http://etmymnet/dnld/az_Logics/SD_TapMarkInsp/</UpdateUrlHistory>
-    <BootstrapperUrlHistory>http://172.16.59.254/dnld/az_Logics/SD_TapMarkInsp_A/</BootstrapperUrlHistory>
+    <UpdateUrlHistory>http://20.10.30.2/dnld/az_Logics/SD_TapMarkInsp_A/|http://172.16.59.254/dnld/az_Logics/SD_TapMarkInsp_A/|http://etmymnet/dnld/az_Logics/SD_TapMarkInsp_A/|http://etmymnet/dnld/az_Logics/SD_TapMarkInsp/</UpdateUrlHistory>
+    <BootstrapperUrlHistory>http://20.10.30.2/dnld/az_Logics/SD_TapMarkInsp_A/|http://172.16.59.254/dnld/az_Logics/SD_TapMarkInsp_A/</BootstrapperUrlHistory>
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>

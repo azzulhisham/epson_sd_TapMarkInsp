@@ -1448,7 +1448,7 @@ Public Class frm_Main
         If Not Me.lbl_LotNo.Text.IndexOf("---") < 0 Then
             If My.Computer.Network.IsAvailable Then
                 Try
-                    If My.Computer.Network.Ping("172.16.59.254") Then
+                    If My.Computer.Network.Ping("20.10.30.2") Then
                         If System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed And System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CheckForUpdate Then
                             If Me.Lnk_Update.Visible = False Then
                                 Me.Lnk_Update.Visible = True
